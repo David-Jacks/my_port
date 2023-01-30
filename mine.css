@@ -51,6 +51,20 @@ body{
     justify-content: center;
     align-self:flex-end;
 }
+.head h1::after{
+    color: #F4EBD0;
+animation: changes 4s ease-in-out infinite  forwards;
+content: " Actual Page";
+}
+@keyframes changes {
+    0%{
+        content: " Folio Page";
+    }50%{
+        content: " Student Office";
+    }100%{
+        content: " Personal Profile";
+    }
+}
 .second{
     padding-top: 15vh;
     width: 100%;
@@ -63,7 +77,7 @@ body{
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     justify-content: space-around;
     background-color: #122620;
 }
@@ -84,6 +98,7 @@ body{
 -moz-box-shadow: -3px -29px 61px -2px rgba(0,0,0,0.85) inset;
 }
 .mylist ul{
+    font-family: 'Roboto', sans-serif;
     padding-top: 1em;
     width: 60%;
     height: 60vh;
@@ -145,6 +160,62 @@ body{
     }
     
 }
+.project{
+    margin-top: 5vh;
+    display: flex;
+    font-display: row;
+    width: 100%;
+    justify-content: space-around;
+}
+.p1{
+font-size: x-large;
+font-family: cursive;
+cursor: pointer;
+border: 2px solid #122620;
+padding: 1em;
+}
+.p1:hover::after{
+    animation: move 0.5s ease-in-out 0.5s 2 alternate forwards;
+    content: "my Project";
+}
+@keyframes move {
+    0%{
+        height: fit-content;
+        background-color: #122620;
+        border-radius: 13%;
+        color: #ffffff;
+    }20%{
+        height: fit-content;
+        background-color: #1c1e1d;
+        border-radius: 10%;
+        color: #ffffff;
+    }40%{
+        height: fit-content;
+        background-color: #188161;
+        border-radius: 50%;
+        color: #ffffff;
+    }60%{
+        height: fit-content;
+        background-color: #3a9423;
+        border-radius: 15%;
+        color: #ffffff;
+    }70%{
+        height: fit-content;
+        background-color: #52a422;
+        border-radius: 24%;
+        color: #ffffff;
+    }80%{
+        height: fit-content;
+        background-color: #0f0557;
+        border-radius: 30%;
+        color: #ffffff;
+    }100%{
+        height: fit-content;
+        background-color: #160c0c;
+        border-radius: 15%;
+        color: #ffffff;
+    }
+}
 .footer{
     width: 100%;
     height: 10vh;
@@ -153,10 +224,7 @@ body{
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-end;
-    position: fixed;
-    bottom: 0; 
-    left: 0; 
-    right: 0;
+   
 }
 .handles span{
     color: #ffffff;
@@ -164,4 +232,17 @@ body{
 }
 .handles span:hover{
 color:#122620;
+}
+.f1{
+margin: 1px auto;
+width: fit-content;
+font-family: 'Roboto', sans-serif;
+padding: 2px;
+font-weight: bolder;
+background-color: #B68D40;
+color: #ffffff;
+ position: fixed;
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
 }

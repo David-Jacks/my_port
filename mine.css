@@ -43,6 +43,10 @@ body{
     color: #122620;
     font-weight: bold;
 }
+.nav-bar a{
+    text-decoration: none;
+    color: #F4EBD0;
+}
 .head{
     width: 100%;    
     padding: 0rem 1rem 0rem 0rem ;
@@ -246,3 +250,5 @@ color: #ffffff;
     left: 0; 
     right: 0; 
 }
+/* css for contact page */
+

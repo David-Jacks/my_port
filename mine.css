@@ -3,7 +3,9 @@
     margin: 0;
 }
 .container{
-    background: #ECF87F;
+    /* background: rgb(61, 85, 12, 0.6); */
+    background-image: url("https://i.pinimg.com/originals/19/e6/64/19e66470d1ae481fa6250a894085923d.jpg");
+    /* background-blend-mode: screen; */
     flex-direction: column;
     justify-content: space-between;
 }
@@ -128,12 +130,12 @@
 .mylist{
     width: 60%;
     margin: 1px auto;
-    background-color: white;
+    background:transparent;
     border-top-right-radius: 2em;
     border-bottom-left-radius: 2em;
-    box-shadow: -28px 200px 297px 65px rgba(231,209,7,0.75);
-    -webkit-box-shadow: -28px 200px 297px 65px rgba(231,209,7,0.75);
-    -moz-box-shadow: -28px 200px 297px 65px rgba(231,209,7,0.75);
+    box-shadow: -2px 1px 12px 11px rgba(188,226,161,0.75);
+    -webkit-box-shadow: -2px 1px 12px 11px rgba(188,226,161,0.75);
+    -moz-box-shadow: -2px 1px 12px 11px rgba(188,226,161,0.75);
 }
 .mylist ul{
     font-family: 'Roboto', sans-serif;
@@ -142,14 +144,16 @@
     flex-direction: column;
     justify-content: center;
     list-style-type:circle;
+    font-family: 'Times New Roman', Times, serif;
+    color: #ffffff;
 }
 .mylist a{
-    color: #B68D40;
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
 }
 .mylist b{
-    color: #3d550c;
+    color: #ecf87f;
 }
 .third{
     width: 100%;
@@ -195,7 +199,6 @@
     
 }
 .project{
-    margin-top: 5vh;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -206,13 +209,16 @@
 font-size: x-large;
 font-family: cursive;
 cursor: pointer;
-border: 2px solid #122620;
+border: 2px solid #727876;
+border-radius: 1em;
 padding: 0.5em;
+color: #ecf87f;
 
 }
 .p1:hover::after{
+    background-color: #3d550c;
     animation: move 0.5s ease-in-out 0.5s 2 alternate forwards;
-    content: "This is a project i built, it is very amazing and you will love it";
+    content: "click to view project";
 }
 @keyframes move {
     0%{

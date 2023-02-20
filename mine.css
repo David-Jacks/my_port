@@ -15,6 +15,7 @@
       --wave-color:#f5f5f5;
       --nav-after:#58a6ff;
       --borders:#30363d;
+      --handles:#30363d;
       --first-font: 'Itim', cursive;
       --second-font: 'Libre Baskerville', serif;
       --third-font: 'Playfair Display', serif;
@@ -34,7 +35,8 @@
       --pic-bg:#161b22;
       --wave-bg:#161b22;
       --nav-after:#c5b447;
-      --borders:#68665c;
+      --borders:#f9f8f0;
+      --handles:#502b39;
       --first-font: 'Itim', cursive;
       --second-font: 'Libre Baskerville', serif;
       --third-font: 'Playfair Display', serif;
@@ -378,7 +380,7 @@
   .fa-instagram,
   .fa-github,
   .fa-linkedin {
-      color: var(--borders);
+      color: var(--handles);
   }
 
   .fa-twitter:hover,

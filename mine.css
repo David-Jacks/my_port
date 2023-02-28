@@ -34,7 +34,7 @@
       --list-bg:#21262d;
       --pic-bg:#161b22;
       --wave-bg:#161b22;
-      --nav-after:#c5b447;
+      --nav-after:rgb(238, 209, 24);
       --borders:#f9f8f0;
       --handles:#502b39;
       --first-font: 'Itim', cursive;
@@ -75,6 +75,7 @@
       border: 2px solid var(--borders);
       border-bottom-right-radius: 0.5em;
       border-bottom-left-radius: 0.5em;
+      
   }
 
   .head h1::after {
@@ -82,6 +83,9 @@
       animation: changes 4s ease-in-out infinite forwards;
       font-family: var(--third-font);
       content: " Personal Profile";
+      -webkit-animation:changes 4s ease-in-out infinite forwards ;
+      -moz-animation: changes 4s ease-in-out infinite forwards;
+      -o-animation:changes 4s ease-in-out infinite forwards;
   }
 
   @keyframes changes {
@@ -126,12 +130,16 @@
       font-size: larger;
       font-family: var(--last-font);
       padding: 0px 0.7em 5px 0.7em;
+      transition: all .4s ease;
   }
 
   .nav-bar a:hover {
       font-family: var(--last-font);
       padding: 0px 0.7em 5px 0.7em;
-      border: 3px solid #30363d;
+      border: 3px solid #dadddf;
+      background-color: #30363d;
+      font-family: var(--second-font);
+      color: var(--nav-after);
       border-top-right-radius: 1em;
       border-bottom-left-radius: 1em;
   }
@@ -158,6 +166,9 @@
       background-color: var(--head-color);
       position: relative;
       animation: bounce 0.7s ease-in-out infinite alternate;
+      -webkit-animation: bounce 0.7s ease-in-out infinite alternate;
+      -moz-animation: bounce 0.7s ease-in-out infinite alternate;
+      -o-animation: bounce 0.7s ease-in-out infinite alternate;
   }
 
   @keyframes bounce {
@@ -302,9 +313,13 @@
       border: 2px solid #727876;
       border-radius: 1em;
       padding: 0.5em;
+      text-decoration: none;
       color: var(--nav-after);
       background-color: var(--borders);
-
+      transition: all .5s ease;
+  }
+  .p1:hover{
+    background-color: rgb(233, 225, 225);
   }
 
   @keyframes move {
@@ -381,13 +396,15 @@
   .fa-github,
   .fa-linkedin {
       color: var(--handles);
+      transition: all .3s ease-in;
   }
 
   .fa-twitter:hover,
   .fa-instagram:hover,
   .fa-github:hover,
   .fa-linkedin:hover {
-      font-size: 6em;
+    transform: scale(1.2);
+    color: #fff;
 
   }
 

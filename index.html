@@ -11,14 +11,16 @@
     <title>My folio Page</title>
   </head>
   <body class="body">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script> -->
     <div class="container">
        <section class="first">
           <div class="head">
               <div class="h1-manager">
                 <h1>My</h1>
               </div>
-        
+              <button class="menu">
+                ☰
+              </button>
               <ul class="head-nav">
                 <li><a href="#lifestyle">lifestyle</a></li>
                 <li><a href= "#showroom"> Showroom</a></li>
@@ -28,6 +30,9 @@
 
               <span class="backgroundChange">Light🌞</span>
             </div>
+            <!-- <div class="menu-show">
+
+            </div> -->
             <!-- 🌞🌙 -->
         </section> 
       <div class="small-space"></div>
@@ -147,15 +152,15 @@
   </div>
   <div id="contact">
     <div class="space"></div>
-    <form action="post">
-      <input class="n" type="text" placeholder="Your Name?"><br>
-      <input class="n" type="email" placeholder="Your Email?"><br>
-    <textarea class="breif" id="" cols="30" rows="10" placeholder="write briefly about your self?"></textarea><br>
-     <textarea class="mess" id="" cols="30" rows="10" placeholder="Write a message for me"></textarea><br>   
-     <input type="submit">
+    <form action="post" class="form">
+      <input class="n" type="text" placeholder="Your Name?" required><br>
+      <input class="n" type="email" placeholder="Your Email?" required><br>
+      <textarea class="breif" id="" cols="15" rows="6" placeholder="write briefly about your self?" required></textarea><br>
+      <textarea class="mess" id="" cols="15" rows="6" placeholder="Write a message for me" required></textarea><br>   
+      <input type="submit" class="send">
     </form>
   </div>
-  <div class="small-space"></div>
+  <div class="space"></div>
   <section class="footer">
       <div class="fo-actual">
           <div class="ack">

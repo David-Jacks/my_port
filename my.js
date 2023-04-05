@@ -9,6 +9,26 @@ document.querySelector(".backgroundChange").addEventListener("click", () => {
   }
 });
 
+const menuButton = document.querySelector(".menu");
+const navBar = document.querySelector(".head-nav");
+const head = document.querySelector(".h1-manager");
+const backChange = document.querySelector(".backgroundChange");
+
+menuButton.addEventListener("click", () => {
+  if (navBar.classList.contains("show-nav")) {
+    // close the menu
+    menuButton.innerHTML = "☰";
+    navBar.classList.remove("show-nav");
+    backChange.classList.remove("hide-backChange");
+    head.classList.remove("hide-logo");
+  } else {
+    // open the menu
+    menuButton.innerHTML = "✕";
+    backChange.classList.toggle("hide-backChange");
+    head.classList.add("hide-logo");
+    navBar.classList.add("show-nav");
+  }
+});
 // text animation
 // gsap.registerPlugin(SplitText);
 

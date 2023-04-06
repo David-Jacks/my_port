@@ -29,28 +29,8 @@ menuButton.addEventListener("click", () => {
     navBar.classList.add("show-nav");
   }
 });
+
 // text animation
-// gsap.registerPlugin(SplitText);
-
-// let timeline = gsap.timeline();
-// let mySplitText = new SplitText("#about-text", { type: "words, chars" });
-// let myChars = mySplitText.chars;
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   gsap.set("#about-text", { perspective: 400 });
-
-//   timeline.from(myChars, {
-//     duration: 0.8,
-//     opacity: 0,
-//     scale: 0,
-//     y: 80,
-//     rotationX: 180,
-//     transformOrigin: "0% 50% -50",
-//     ease: "back",
-//     stagger: 0.01,
-//   });
-// });
-
 const textElement = document.getElementById("about-text");
 const text = textElement.innerText.split(" ");
 textElement.innerText = "";
@@ -66,4 +46,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   showNextWord();
+});
+
+// carousel
+$(document).ready(function () {
+  $(".owl-carousel").owlCarousel({
+    loop: true,
+    margin: 10,
+    // stagePadding: 70,
+    nav: true,
+    responsive: {
+      0: {
+        items: 2,
+      },
+      600: {
+        items: 3,
+      },
+      1000: {
+        items: 4,
+      },
+    },
+  });
 });

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="mine.css">
-    <link href="" rel="stylesheet">
+    <link href="asset/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet" >
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>My folio Page</title>
@@ -25,7 +25,7 @@
                 <li><a href="#lifestyle">lifestyle</a></li>
                 <li><a href= "#showroom"> Showroom</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href= "jacksonsimage.com"> MyBlog</a></li>  
+                <li><a href= "jacksonsimage.com" target="_blank"> MyBlog</a></li>  
               </ul>
 
               <span class="backgroundChange">Light🌞</span>
@@ -110,25 +110,39 @@
 
     </div>
 
-  <div class="space">
-  
-  </div>
   <div id="showroom">
     <div class="space"></div>
-    <div class="project">
-      <a  href="#" class="p1">
-         @Wonworld-project
-      </a>
-      <a  href="#" class="p1">
-          @odin-recipes
-      </a>
-      <a href="#"  class="p1">
-          @fastconnect
-      </a>
-      <a href="#"  class="p1">
-          @yourStore
-      </a>
+    <div class="owl-carousel">
+        <div class="card">
+          <img src="./img/photo_2022-07-16_09-13-23.jpg" class="card-img-top pro-img" alt="...">
+          <div class="card-body pro-body">
+            <p class="card-text"> build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">  @Wonworld-project</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/photo_2022-07-16_09-13-23.jpg" class="card-img-top pro-img" alt="...">
+          <div class="card-body pro-body">
+            <p class="card-text"> build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">    @odin-recipes</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/photo_2022-07-16_09-13-23.jpg" class="card-img-top pro-img" alt="...">
+          <div class="card-body pro-body">
+            <p class="card-text"> build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">  @fastconnect</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="./img/photo_2022-07-16_09-13-23.jpg" class="card-img-top pro-img" alt="...">
+          <div class="card-body pro-body">
+            <p class="card-text"> build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">   @yourStore</a>
+          </div>
+        </div>
     </div>
+
       <div class="space">
     </div>
     <div class="connects">
@@ -190,6 +204,8 @@
       
           <div class="own"> <i class="fa fa-copyright fa-2x"></i>2023|Developed by David Jackson</div>
   </section>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+  <script src="asset/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
   <script src="/my.js"></script>
   </div>
 </body>

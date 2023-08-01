@@ -1,5 +1,5 @@
-# myselef
+### myselef
 
-# this a personal project consisting of my portfolio, blog and personal data
+#this a personal project consisting of my portfolio, blog and personal data
 
-# this project is vital for the future
+#this project is vital for the future

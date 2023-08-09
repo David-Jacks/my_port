@@ -1,21 +1,328 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300;400&family=Lato&family=Montserrat:wght@371&family=Open+Sans:wdth,wght@79.2,686&family=Playfair+Display:wght@500&family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Poppins:wght@300&family=Roboto+Flex:opsz,wght@8..144,800&display=swap');
 
-/*   
-font-family: 'Bitter', serif;
-font-family: 'Lato', sans-serif;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Open Sans', sans-serif;
-font-family: 'Playfair Display', serif;
-font-family: 'Roboto', sans-serif; */
 
 * {
-      box-sizing: border-box;
-      margin: 0;
-      font-family: var(--OpenSans);
-  }
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+
+}
+
+
+
+body{
+user-select: none;
+font-family : var(--monserrate);
+background: var(--yelow-white) !important;
+}
+
+.local-space{
+    width: 100%;
+    height: 2rem;
+}
+
 ::-webkit-scrollbar{
     display: none;
 }
+
+    :root{
+        --voilet: #0B0033;
+        --mauve: #CAA8F5;
+        --yelow-white: #FFFBDB;
+        --ebony: #5B6057;
+        --black: #000; 
+        --roboto: 'Roboto Flex', sans-serif;
+        --poppins: 'Poppins', sans-serif;
+        --monserrate: 'Montserrat Alternates', sans-serif;
+        --container-width: 85vw;
+        --container-mid : 90vw;
+        --container-width-sm: 94vw;
+        --page-hieght: 88dvh;
+    }
+
+
+  .container{
+    
+    width:var(--container-width);
+    padding: 0 !important;
+    position: relative;
+}
+
+nav{
+    /* width : 80vw; */
+    position: sticky;
+    top: 0;
+    background-color: var(--yelow-white);
+}
+
+.nav__container{
+    background:  transparent;
+    width: 100%;
+    display: flex;
+    height: 6rem;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--voilet);
+    /* z-index: 12; */
+    padding: 0rem 1rem;
+}
+
+.nav__container h2{
+    font-size: 2.5rem;
+    font-family: var(--roboto);
+}
+
+.nav__menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    width: 40%;
+    
+}
+
+
+.nav__menu li{
+list-style : none;
+padding: 0rem 0.4rem;
+}
+.nav__menu a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: var(--poppins);
+    font-weight: 600;
+    position: relative;
+    color: currentColor;
+}
+
+.nav__menu a::after{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 0.15rem;
+    background-color: var(--ebony);
+    border-radius: 2.5rem;
+}
+
+.nav__menu button{
+    font-size: 2rem;
+    background: none;
+}
+
+#open-menu-btn, #close-menu-btn{
+    display: none;
+} 
+
+  /* landing page */
+#landing__page{
+    width: 100%;
+    height: var(--page-hieght);
+    background-color: transparent;
+    display: flex;
+}
+.landing__image{
+    width: 50%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+}
+.landing__image img{
+    display: flex;
+    height: 100%;
+    align-self: center;
+}
+#landing__page .landing__text{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.landing__text p{
+    font-family: var(--monserrate);
+    font-size: 2rem;
+    color: var(--voilet);
+    text-align: justify;
+    line-height: 1.5;
+    letter-spacing: 0.1rem;
+}
+
+.landing__text h3{
+    text-align: center;
+    font-family: var(--roboto);
+    font-size: 3.5rem;
+    color: var(--voilet);
+    border-bottom: 0.18rem solid var(--ebony);
+}
+
+.landing__text a{
+    font-family: var(--poppins);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--yelow-white);
+    text-decoration: none;
+    display: flex;
+    align-self: center;
+    border: 0.15rem solid var(--ebony);
+    border-radius: 0.8rem 0.3rem;
+    padding: 0rem 0.8rem;
+    background-color: var(--voilet);
+}
+.landing__text .socials {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6rem;
+}
+.landing__text .socials button{
+    font-size: 3rem;
+    background: none;
+    color: var(--ebony);
+}
+.landing__text .socials button:hover{
+    color: var(--mauve);
+}
+/* About section */
+#about__page{
+    width: 100%;
+    border-bottom: 0.1rem dashed var(--ebony);
+}
+
+#about__page h2{
+    font-family: var(--roboto);
+    font-size: 3rem;
+    color: black;
+    text-align: center;
+    border-bottom: 0.3rem dashed var(--ebony);
+}
+.abt{
+    width: 100%;
+    height: calc(100dvh / 3);
+    display: flex;
+    flex-direction: row;
+}
+.second__abt, .fourth__abt{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.abt__content{
+    width: 50%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+}
+.abt h3{
+    font-size: 3rem;
+    font-family: var(--roboto);
+    color: var(--voilet);
+    text-align: center;
+}
+.abt p{
+    font-size: 1.5rem;
+    color: var(--black);
+    font-family: var(--monserrate);
+    text-align: justify;
+}
+
+.abt__vector{
+    width: 50%;
+    /* background-color: white; */
+}
+
+/* Projects showcase */
+#projects__page{
+    width: 100%;
+    height: var(--page-hieght);
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.1rem dashed var(--ebony);
+}
+
+.projects__page__head{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-self: center;
+}
+.projects__page__head h3{
+    font-family: var(--roboto);
+    color: var(--voilet);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.projects__page__head p{
+    font-size: 1.5rem;
+    color: var(--black);
+    font-family: var(--monserrate);
+    text-align: justify;
+}
+
+/* contact section */
+#contact__page{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 70dvh;
+}
+
+.cont__head{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.cont__head h3{
+    font-family: var(--roboto);
+    font-size: 3rem;
+    color: var(--voilet);
+    text-align: center;
+}
+
+.cont__head p{
+    font-family: var(--monserrate);
+    font-size: 1.6rem;
+    text-align: justify;
+    line-height: 2.5;
+    letter-spacing: 0.5px;
+    color: var(--black);
+}
+.cont__head a{
+    font-family: var(--poppins);
+    font-size: 2rem;
+    text-align: center;
+    color: var(--voilet);
+    margin-top: 5rem;
+}
+.cont__form{
+    display: none;
+}
+
+/* footer */
+#footer__page{
+    width: 100%;
+    border-bottom: 0.1rem solid var(--ebony);
+}
+
+.copy__right{
+    font-family: var(--monserrate);
+    font-size: 2rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--ebony);
+}
+/*     
   :root {
       --head-color: #21262d;
       --nav-color:#dec6cb;
@@ -34,11 +341,11 @@ font-family: 'Roboto', sans-serif; */
       --montserrat:'Montserrat', sans-serif;
       --bitter:'Bitter', serif;
       --second-color: #dabd34;
-  }
+  } */
 
 
-  .light {
-      /* --dark: #decba5; */
+  /* --dark: #decba5; */
+  /* .light {
       --dark: #c5c8cc;
       --head-color:#502b39;
       --nav-color:#c9b6b9;
@@ -50,17 +357,7 @@ font-family: 'Roboto', sans-serif; */
       --borders:#f9f8f0;
       --handles:#502b39;
   }
-  .body{
-    background-color: #0f2a45;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
-  .container {
-      background: var(--dark);
-      flex-direction: column;
-      justify-content: space-between;
-  }
-
+ 
   .first {
       width: 100%;
       height: max-content;
@@ -73,7 +370,6 @@ font-family: 'Roboto', sans-serif; */
   }
   .head {
       width: 100%;
-      background-color: var(--head-color);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -107,22 +403,7 @@ font-family: 'Roboto', sans-serif; */
       -o-animation:changes 4s ease-in-out infinite forwards;
   }
 
-  @keyframes changes {
-      0% {
-          content: " Folio Page";
-
-      }
-
-      50% {
-          content: " Student Office";
-
-      }
-
-      100% {
-          content: " Personal Profile";
-
-      }
-  }
+  
   .head-nav{
     width: 45%;
     display: flex;
@@ -530,7 +811,6 @@ font-family: 'Roboto', sans-serif; */
       height: 2em;
   }
 
-  /* responsiveness*/
 
   @media screen and (max-width: 426px) {
     .head-nav{
@@ -625,11 +905,9 @@ font-family: 'Roboto', sans-serif; */
     .breif {
         width: 80%;
     }
-     /* #showroom{
-        display: none;
-     } */
+    
      .footer{
         display: none;
      }
 
-  }
+  } */

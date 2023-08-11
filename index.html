@@ -18,9 +18,7 @@
   </head>
 
 <!-- WE ARE GOING TO USE BEM CONVENTION (BLOCK ELEMENT MODIFIER); -->
-  <!-- <body class="body"> -->
 <body>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script> -->
 <div class="container">
 
  <!-- navigation section -->
@@ -34,10 +32,16 @@
             <li><a href="#lifestyle">lifestyle</a></li>
             <li><a href= "#showroom"> Showroom</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href= "jacksonsimage.com" target="_blank"> MyBlog</a></li> 
-
-            <button><i class="fa-solid fa-sun"></i></button>
+            <li><a href= "faithchampwon" target="_blank"> MyBlog</a></li> 
           </ul>
+          <div class="bg__change">
+            <input type="checkbox" class="checkbox">
+            <label for="checkbox" class="checkbox__label">
+              <i class="fa-solid fa-moon"></i>
+              <i class="fa-solid fa-sun"></i>
+              <span class="check__ball"></span>
+            </label>
+          </div>
           <!-- <span class="change-background toggle">Light🌞</span> -->
           
             <button id="open-menu-btn"><i class="fa-solid fa-bars"></i></i></button>
@@ -61,17 +65,36 @@
         <a href="">Find out</a>
 
         <div class="socials">
-          <button><i class="fa-brands fa-github"></i></button>
-          <button><i class="fa-brands fa-linkedin"></i></button>
-          <button><i class="fa-brands fa-twitter"></i></button>
-          <button><i class="fa-brands fa-facebook"></i></button>
+          <div class="hex__wrapper">
+            <div class="hex">
+              <a href="#">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <div class="hex__wrapper">
+            <div class="hex">
+              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="hex__wrapper">
+            <div class="hex">
+              <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="hex__wrapper">
+            <div class="hex">
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="landing__image">
-        <img src="./img/profile.png" alt="self-image">
+        <img src="./img/DavidsProfile.png" alt="self-image">
       </div>
     </div>
     <div class="local-space"></div>
+
     <!-- about_section -->
                 <!-- <div class="cad-contain">
                     <div class="row row-cols-1 row-cols-md-2 g-4">

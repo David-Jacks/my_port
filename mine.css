@@ -669,7 +669,7 @@ nav{
 
 
   
-  @media screen and (max-width: 426px) {
+  @media screen and (max-width: 453px) {
         .my-container{
             width: 100dvw;
             /* margin: auto; */
@@ -784,7 +784,7 @@ nav{
         .abt h3{
             font-size: 1.5rem;
             color: var(--regular-head);
-            text-align: center;
+            text-align: left;
             font-weight: 700;
         }
         .abt p{

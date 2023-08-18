@@ -1,9 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
-/* @font-face {
-    font-family: 'Montserrat';
-    src: url('./asset/fonts/static/Montserrat-ExtraBold.ttf'), format('ttf');
-    font-weight: 500;
-} */
 
 * {
     margin: 0;
@@ -13,7 +8,6 @@
     box-sizing: border-box;
     font-family: 'Montserrat';
 }
-
 html{
     font-size: 62.5%;
 }
@@ -56,6 +50,7 @@ body{
     font-family : var(--monserrate);
     background: var(--yelow-white) !important;
 }
+
 ::-webkit-scrollbar{
     display: none;
 }
@@ -591,38 +586,116 @@ nav{
 
 /* contact section */
 #contact__page{
+    position: relative;
     display: flex;
     width: 100%;
     height: 70dvh;
     justify-content: center;
-    margin-top: 7rem;
+    margin-top: 10rem;
 }
 #contact__page .contact_div_wrapper{
-    width: 50%;
     position: relative;
+    z-index: 10;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px var(--voilet);
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    /* transform: rotateY(180deg); */
+}
+
+#contact__page .swap{
+ transform: rotateY(180deg);
+}
+#contact_btn{
+    margin-top: 10rem;
+    padding: 0.75rem 1.4rem;
+    font-size: 1.8rem;
+    background: var(--ebony);
+    color: var(--voilet);
+    border-radius: 0.4rem;
+    transition: .5s;
+}
+#contact_btn:hover{
+    letter-spacing: 0.3rem;
+}
+
+.card.cont__head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--yelow-white);
+}
+#contact__page .card{
+    position: absolute;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
     padding: 1rem;
-    box-shadow: 0 0 30px var(--voilet);
+    backface-visibility: hidden;
+    /* box-shadow: 0 0 30px var(--voilet); */
 }
-#contact__page #btn{
-    margin-top: 10rem;
-    padding: 0.75rem 1.4rem;
-    font-size: 1.8rem;
+
+.card.cont__form{
+    background: var(--yelow-white);
+    transform: rotateY(180deg);
 }
-.cont__head{
-    width: 100%;
-    height: 85%;
+
+.cont__form .form{
+    margin: auto;
+    width: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-self: center;
+    justify-content: center;
     align-items: center;
+    gap: 1rem;
 }
-.cont__head h3{
+.cont__form .n{
+    width: 80%;
+    height: 4rem;
+    padding: 0rem 1.3rem;
+    background-color: var(--yelow-white);
+    border: 2px solid var(--voilet);
+    border-radius: 0.5rem;
+    color: var(--text);
+    font-size: 2rem;
+    font-weight: 600;
+}
+.cont__form .send{
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding: 0.75rem 1.5rem;
+    letter-spacing: 0.1rem;
+    background: var(--ebony);
+    color: var(--voilet);
+    transition: .5s;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+.cont__form .send:hover{
+    letter-spacing: 0.6rem;
+}
+#cont-mess{
+    width: 80%;
+    padding: 1rem 1.3rem;
+    background-color: var(--yelow-white);
+    border: 2px solid var(--voilet);
+    border-radius: 0.5rem;
+    resize: none;
+    font-size: 1.5rem;
+    color: var(--text);
+    font-weight: 600;
+}
+.cont__head h3, .cont__form h3{
     width: 100%;
     color: var(--voilet);
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-align: center;
     font-weight: 700;
     border-bottom: 0.08rem dashed var(--ebony);
@@ -642,10 +715,6 @@ nav{
     text-align: center;
     color: var(--voilet);
     margin-top: 5rem;
-}
-.cont__form{
-    position: absolute;
-    display: none;
 }
 
 /* footer */
@@ -669,7 +738,7 @@ nav{
 
 
   
-  @media screen and (max-width: 453px) {
+  @media screen and (max-width: 553px) {
         .my-container{
             width: 100dvw;
             /* margin: auto; */
@@ -864,15 +933,37 @@ nav{
         #contact__page .contact_div_wrapper{
             width: 320px;
             height: 350px;
-            padding: 1rem;
-            box-shadow: 0 0 25px var(--voilet);
+            padding: 0rem;
+            margin: auto;
+        }
+        .cont__form .n{
+            width: 100%;
+            height: 3rem;
+            padding: 0rem 1.3rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .cont__form .send{
+            font-size: 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+        }
+        .cont__form .send:hover{
+            letter-spacing: 0.3rem;
+        }
+        #cont-mess{
+            width: 100%;
+            height: 30%;
+            padding: 1rem 1.3rem;
+            font-size: 1rem;
+            font-weight: 500;
         }
         .cont__head h3{
             width: 100%;
             font-size: 2.5rem;
             font-weight: 600;
         }
-        
         .cont__head p{
             font-size: 1rem;
             text-align: justify;

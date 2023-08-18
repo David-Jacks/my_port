@@ -24,10 +24,10 @@
       <div class="nav__container">
         <h2>David Jackson</h2>
           <ul class="nav__menu">
-            <li><a href="#lifestyle">Lifestyle</a></li>
-            <li><a href= "#showroom"> Showroom</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href= "faithchampwon" target="_blank"> MyBlog</a></li> 
+            <li><a href="#about__page">Lifestyle</a></li>
+            <li><a href= "#projects__page"> Showroom</a></li>
+            <li><a href="#contact__page">Contact</a></li>
+            <li><a href= "#" target="_blank"> MyBlog</a></li> 
           </ul>
           <div class="bg__change">
             <input type="checkbox" class="checkbox">
@@ -56,7 +56,7 @@
             My journey in the world of programming has been fueled by 
             the desire to create innovative solutions that make a meaningful impact. 
           </p>
-          <a href="" id="btn"><span>Resume</span><i></i></a>
+          <a href="https://docs.google.com/document/d/1JL5OfvSEhKgqvTTV_p75TKvf38GQdNMqgBDjdgZ49ZY/edit#heading=h.j827qwtrydby" id="btn" target="_blank"><span>Resume</span><i></i></a>
         </div>
         <div class="socials">
           <div class="hex__wrapper">
@@ -138,7 +138,6 @@
       </div>
 
     </div>     
-
       <!-- projects showcase -->
       <div id="projects__page">
         <div class="projects__page__head">
@@ -220,8 +219,8 @@
 
   <!-- contact form -->
   <div id="contact__page">
-    <div class="contact_div_wrapper">
-      <div class="cont__head">        
+    <div class="contact_div_wrapper swap">
+      <div class="card cont__head">        
         <h3>Let's Connect</h3>
         <p>Are you ready to turn your ideas into reality? Let's collaborate and 
           create something exceptional together. 
@@ -229,20 +228,19 @@
           or solving intricate challenges, I'm here to make a difference.
         </p>
         
-        <a href="" id="btn"><span>Send Message</span><i></i></a>
+        <button id="contact_btn"><span>Send Message</span></button>
       </div>
-      <div class="cont__form">
-        <form action="post" class="form">
-          <input class="n" type="text" placeholder="Your Name?" required><br>
-          <input class="n" type="email" placeholder="Your Email?" required><br>
-          <textarea class="breif" id="" cols="15" rows="6" placeholder="write briefly about your self?" required></textarea><br>
-          <textarea class="mess" id="" cols="15" rows="6" placeholder="Write a message for me" required></textarea><br>   
+      <div class="card cont__form">
+        <h3>Write to me</h3>
+        <form id="contact-form" action="https://formspree.io/f/mvojapal" class="form" method="POST">
+          <input class="n" type="text" name="name" placeholder="Name" required><br>
+          <input class="n" type="email" name="email" placeholder="Email" required><br>
+          <textarea name="message" id="cont-mess" cols="15" rows="6" placeholder="write message" required></textarea>  
           <input type="submit" class="send">
         </form>
       </div>  
     </div>
   </div>
-
   <section id="footer__page">
       <div class="copy__right"> @ 2023 Developed by <span>David Jackson</span></div>
   </section>

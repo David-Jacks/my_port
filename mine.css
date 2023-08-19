@@ -12,12 +12,12 @@ html{
     font-size: 62.5%;
 }
 :root{   
-    --voilet: #FDFFF7;
+    --voilet: #F5F5F5;
     --mauve: #8CA0D7;
     --yelow-white: #292c35;
     --ebony: #474545;
     --text: white;
-    --regular-head: #e7c324;
+    --regular-head: #e7c324f1;
     --container-width: 85vw;
     --container-mid : 90vw;
     --container-width-sm: 94vw;
@@ -731,8 +731,8 @@ nav{
     font-weight: 300;
 }
 #footer__page .copy__right span{
-    font-weight: 600;
-    font-size: 2.5rem;
+    font-weight: 500;
+    font-size: 2.2rem;
 }
 
 
@@ -801,9 +801,9 @@ nav{
            margin: auto;
         }
         .text p{
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin: 1rem auto;
-            font-weight: 500;
+            font-weight: 400;
         }
         .text h3 span:nth-child(1){
             font-weight: 300;
@@ -857,8 +857,8 @@ nav{
             font-weight: 700;
         }
         .abt p{
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 1.2rem;
+            font-weight: 400;
             text-align: left;
         }
         .second__abt p, .second__abt h3, .fourth__abt p, .fourth__abt h3{
@@ -893,7 +893,8 @@ nav{
         }
         
         .projects__page__head p{
-            font-size: 1rem;
+            font-size: 1.2rem;
+            font-weight: 400;
             text-align: justify;
         }
         .projects__show{
@@ -905,16 +906,17 @@ nav{
         .project__box{
             position: relative;
             width: 280x;
-            height: 280px;
-            margin: auto;    
+            height: 300px;
+            margin: auto;
+            padding: 0.5rem 0;    
         }
         .project__box::after, .project__box::before{
             display: none;
         }
         .project__text p{
             text-align: center;
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 1.2rem;
+            font-weight: 400;
             color: var(--text);
         }
         .project__text h3{

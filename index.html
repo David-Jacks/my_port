@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mine.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -17,6 +24,40 @@
 
 <!-- WE ARE GOING TO USE BEM CONVENTION (BLOCK ELEMENT MODIFIER); -->
 <body>
+    <!-- SVG filter for electric/lightning displacement used by project cards -->
+    <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+      <defs>
+        <filter id="turbulent-displace-proj" color-interpolation-filters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
+          <!-- Reduced baseFrequency & octaves to lower visual noise -->
+          <feTurbulence type="turbulence" baseFrequency="0.006" numOctaves="4" result="noise1" seed="1" />
+          <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
+            <animate attributeName="dy" values="300; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
+          </feOffset>
+
+          <feTurbulence type="turbulence" baseFrequency="0.006" numOctaves="4" result="noise2" seed="1" />
+          <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
+            <animate attributeName="dy" values="0; -300" dur="6s" repeatCount="indefinite" calcMode="linear" />
+          </feOffset>
+
+          <feTurbulence type="turbulence" baseFrequency="0.006" numOctaves="4" result="noise3" seed="2" />
+          <feOffset in="noise3" dx="0" dy="0" result="offsetNoise3">
+            <animate attributeName="dx" values="240; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
+          </feOffset>
+
+          <feTurbulence type="turbulence" baseFrequency="0.006" numOctaves="4" result="noise4" seed="2" />
+          <feOffset in="noise4" dx="0" dy="0" result="offsetNoise4">
+            <animate attributeName="dx" values="0; -240" dur="6s" repeatCount="indefinite" calcMode="linear" />
+          </feOffset>
+
+          <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
+          <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
+          <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
+
+          <!-- Lower displacement scale for subtler distortion -->
+          <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="8" xChannelSelector="R" yChannelSelector="B" />
+        </filter>
+      </defs>
+    </svg>
 <div class="my-container" id="folio">
 
  <!-- navigation section -->
@@ -56,7 +97,7 @@
             My journey in the world of programming has been fueled by 
             the desire to create innovative solutions that make a meaningful impact. 
           </p>
-          <a href="https://docs.google.com/document/d/1c6BNZxKKlzASDLzFV6KAmNdHYbCDNMUvOOUIKX0d28o/edit?usp=sharing" id="btn" target="_blank"><span>Resume</span><i></i></a>
+          <a href="https://github.com/David-Jacks/Documentations/blob/main/DAVID-JACKSON-version1-resume.pdf" id="btn" target="_blank"><span>Resume</span><i></i></a>
         </div>
         <div class="socials">
           <div class="hex__wrapper">
@@ -147,98 +188,55 @@
           </p>
         </div>
         
-        <div class="projects__show" style="--pro_color: #FF8811;">
-            <div class="project__box Your_store">
-              <div class="project_card_content">
-                <div class="project__icon">
-                  <svg width="80px" height="80px"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <g id="Card">
-                    <path class="cls-1" d="M21,4.93h0L12.32,2.05a1,1,0,0,0-.61,0l-9,2.75A1,1,0,0,0,2,5.57,1.06,1.06,0,0,0,1.93,6V9A1.07,1.07,0,0,0,3,10.07H5V17H3a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V18a1,1,0,0,0-1-1H19V10.07h2A1.07,1.07,0,0,0,22.07,9V6A1.07,1.07,0,0,0,21,4.93ZM12,4l2.64.88H9.1Zm-5,6H8V17H7ZM13,17V10.07h1V17Zm-2,0H10V10.07h1Zm9,3H4V19H20Zm-3-3H16V10.07h1Zm2.93-9.07H4.07V7.07H19.93Z"/>    
-                    </g> 
-                  </svg>
-                </div>
-                <div class="project__text">
-                  <h3>Club Online</h3>
-                  <p>A club management system to help manage member details and attendance</p>
-                  <a href="https://christianclubonline.netlify.app/" id="btn" target="_blank"><span>visit</span><i></i></a>
-                </div>
-              </div>
-           </div>
-
-            <div class="project__box" style="--pro_color: #e7c324;">
-              <div class="project_card_content">
-                <div class="project__icon">
-                  <svg height="80px" width="80px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 380 380" xml:space="preserve">
-                    <g id="XMLID_510_">
-                      <path class="cls-1" id="XMLID_515_" d="M380,140V20h-20V0H240v20H140V0H20v20H0v120h20v100H0v120h20v20h120v-20h100v20h120v-20h20V240h-20V140
-                        H380z M340,100h-20v180h20v40h-20v20h-40v-20H100v20H60v-20H40v-40h20V100H40V60h20V40h40v20h180V40h40v20h20V100z"/>
-                      <path id="XMLID_829_" d="M100,280h180V100H100V280z M140,140h100v100H140V140z"/>
-                    </g>
-                  </svg>
-                </div>
-                <div class="project__text">
-                  <h3>Fastconnect</h3>
-                  <p>An intranet media for organization to manage interial affers, built with reactjs and express</p>
-                  <a href="https://fastconnect-897e0.firebaseapp.com/" id="btn" target="_blank"><span>visit</span><i></i></a>
-                </div>
+        <div id="projects-grid" class="projects-grid" aria-live="polite"></div>
+        <template id="project-card-tpl">
+          <article class="project-card" role="article">
+            <div class="pc-surface">
+              <div class="pc-media" aria-hidden="true"></div>
+              <div class="pc-body">
+                <h4 class="pc-title"></h4>
+                <p class="pc-desc"></p>
+                <div class="pc-cta"><a class="pc-link" target="_blank" rel="noopener noreferrer">Visit</a></div>
               </div>
             </div>
-
-         <div class="project__box" style="--pro_color: #8dcf13;">
-            <div class="project_card_content">
-              <div class="project__icon">
-                <svg height="80px" width="80px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.532 491.532" xml:space="preserve">
-                  <g>
-                    <g>
-                      <path class="cls-1" d="M471.05,368.643h-40.958v-52.957l55.442-55.442c7.998-7.998,7.998-20.965,0-28.963l-55.442-55.442v-52.957h40.958
-                        c11.311,0,20.48-9.169,20.48-20.48v-61.44c0-11.311-9.169-20.48-20.48-20.48H348.17c-11.311,0-20.48,9.169-20.48,20.48v61.44
-                        c0,11.311,9.169,20.48,20.48,20.48h40.962v52.957l-49.443,49.443H151.855l-49.443-49.443v-43.701l24.939,9.808
-                        c10.526,4.14,22.415-1.038,26.554-11.564l22.487-57.18c4.14-10.526-1.038-22.415-11.564-26.554L50.468,1.673
-                        c-10.526-4.14-22.415,1.038-26.554,11.564L1.426,70.417c-4.14,10.526,1.038,22.415,11.564,26.554l48.461,19.058v59.81
-                        L6.01,231.281c-7.998,7.998-7.998,20.965,0,28.963l55.442,55.442v38.219l-10.984-4.32c-10.526-4.14-22.415,1.038-26.554,11.564
-                        L1.426,418.33c-4.14,10.526,1.038,22.415,11.564,26.554l114.36,44.974c10.526,4.14,22.415-1.038,26.554-11.564l22.487-57.18
-                        c4.14-10.526-1.038-22.415-11.564-26.554l-62.417-24.546v-54.328l49.443-49.443h187.834l49.443,49.443v52.957H348.17
-                        c-11.311,0-20.48,9.169-20.48,20.48v61.44c0,11.311,9.169,20.48,20.48,20.48h122.88c11.311,0,20.48-9.169,20.48-20.48v-61.44
-                        C491.53,377.812,482.36,368.643,471.05,368.643z M368.65,61.443h81.92v20.48h-81.92V61.443z M54.536,47.287l76.242,29.983
-                        l-7.496,19.062L47.04,66.349L54.536,47.287z M123.282,444.245L47.04,414.261l7.496-19.062l76.242,29.984L123.282,444.245z
-                        M81.932,278.24l-32.477-32.477l32.477-32.477l32.477,32.477L81.932,278.24z M409.612,213.286l32.477,32.477l-32.477,32.477
-                        l-32.477-32.477L409.612,213.286z M450.57,430.083h-81.92v-20.48h81.92V430.083z"/>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-               <div class="project__text">
-                <h3>ScholarScribe</h3>
-                <p>Educational web application for Lancaster University Ghana Creative Society, with React, CSS and Redux</p>
-                <a href="https://master--schorlarscribe.netlify.app/" id="btn" target="_blank"><span>visit</span><i></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+          </article>
+        </template>
       </div>
 
   <!-- contact form -->
   <div id="contact__page">
-    <div class="contact_div_wrapper swap">
-      <div class="card cont__head">        
-        <h3>Let's Connect</h3>
-        <p>Are you ready to turn your ideas into reality? Let's collaborate and 
-          create something exceptional together. 
-          Whether it's building innovative applications, enhancing user experiences, 
-          or solving intricate challenges, I'm here to make a difference.
-        </p>
-        
-        <button id="contact_btn"><span>Send Message</span></button>
+    <div class="contact_div_wrapper">
+      <!-- CSS-only checkbox driven flip (based on your test) -->
+      <input class="contact-checkbox" type="checkbox" id="contact-flip" />
+      <div class="card-3d-wrap">
+        <div class="card-3d-wrapper">
+          <div class="card-front card cont__head">
+            <div class="center-wrap">
+              <h3>Let's Connect</h3>
+              <p>Are you ready to turn your ideas into reality? Let's collaborate and 
+                create something exceptional together. 
+                Whether it's building innovative applications, enhancing user experiences, 
+                or solving intricate challenges, I'm here to make a difference.
+              </p>
+              <label for="contact-flip" id="contact_btn" class="btn"><span>Send Message</span></label>
+            </div>
+          </div>
+          <div class="card-back card cont__form">
+            <div class="center-wrap">
+              <h3>Write to me</h3>
+              <form id="contact-form" action="https://formspree.io/f/mvojapal" class="form" method="POST">
+                <input class="n" type="text" name="name" placeholder="Name" required>
+                <input class="n" type="email" name="email" placeholder="Email" required>
+                <textarea name="message" id="cont-mess" cols="15" rows="6" placeholder="write message" required></textarea>
+                <div class="form-ctas">
+                  <label for="contact-flip" class="btn ghost">Back</label>
+                  <input type="submit" class="send" value="Send">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card cont__form">
-        <h3>Write to me</h3>
-        <form id="contact-form" action="https://formspree.io/f/mvojapal" class="form" method="POST">
-          <input class="n" type="text" name="name" placeholder="Name" required><br>
-          <input class="n" type="email" name="email" placeholder="Email" required><br>
-          <textarea name="message" id="cont-mess" cols="15" rows="6" placeholder="write message" required></textarea>  
-          <input type="submit" class="send">
-        </form>
-      </div>  
     </div>
   </div>
     <section id="footer__page">

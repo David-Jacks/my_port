@@ -1,0 +1,832 @@
+/* contact section - flipping card */
+/* Contact container */
+#contact__page {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 5.5rem 0;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.cont__form .n:focus,
+.cont__form textarea:focus {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    outline: none;
+    border-color: var(--regular-head);
+}
+
+/* contact section - flipping card */
+#contact__page {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 5.5rem 0;
+    justify-content: center;
+
+    /* CSS-only 3D flip based on test pattern */
+    .contact-checkbox {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .card-3d-wrap {
+        perspective: 1500px;
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .card-3d-wrapper {
+        position: relative;
+        width: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.75s cubic-bezier(.2, .9, .3, 1);
+    }
+
+
+    /* Ensure front and back occupy the same stacked space */
+    .card-3d-wrap {
+        position: relative;
+    }
+
+    .card {
+        position: absolute;
+        inset: 0;
+        /* top:0; right:0; bottom:0; left:0; */
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        min-height: 320px;
+        border-radius: 12px;
+        padding: 2.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-front {
+        z-index: 2;
+    }
+
+    .card-back {
+        transform: rotateY(180deg);
+        z-index: 1;
+    }
+
+    .card-front .center-wrap,
+    .card-back .center-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .contact-checkbox:checked~.card-3d-wrap .card-3d-wrapper {
+        transform: rotateY(180deg);
+    }
+
+    /* make labels act like buttons */
+    label[for="contact-flip"] {
+        cursor: pointer;
+    }
+
+    /* Accessibility: reduce motion preference */
+    @media (prefers-reduced-motion: reduce) {
+        .card-3d-wrapper {
+            transition: none;
+        }
+    }
+
+    font-size: 1.6rem;
+}
+
+.cont__form .n:focus,
+.cont__form textarea:focus {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    outline: none;
+    border-color: var(--regular-head);
+}
+
+.cont__form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--voilet);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.cont__form .form {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.cont__form .n,
+.cont__form textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: transparent;
+    border: 1.8px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.6rem;
+    color: var(--text);
+    font-size: 1.6rem;
+}
+
+.cont__form .n:focus,
+.cont__form textarea:focus {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    outline: none;
+    border-color: var(--regular-head);
+}
+
+.cont__form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--voilet);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.cont__form .send {
+    background: linear-gradient(90deg, var(--ebony), #222);
+    color: var(--voilet);
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.6rem;
+    font-size: 1.4rem;
+}
+
+/* Stronger back-face button contrast */
+.card-back .cont__form .send {
+    background: linear-gradient(90deg, var(--regular-head), var(--mauve));
+    color: var(--yelow-white);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.card-back .cont__form .btn.ghost {
+    color: rgba(255, 255, 255, 0.92);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* light theme tweaks for back face */
+body.light .card-back .cont__form .send {
+    background: linear-gradient(90deg, #ffeba7, #ffd36b);
+    color: #102770;
+}
+
+/* Override back-face gradients so Send matches front button color in both themes */
+body:not(.light) .card-back .cont__form .send,
+body:not(.light) .card-back .cont__form input.send,
+body:not(.light) .card-back .cont__form input[type="submit"].send {
+    background: #444;
+    color: var(--voilet);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+body.light .card-back .cont__form .send,
+body.light .card-back .cont__form input.send,
+body.light .card-back .cont__form input[type="submit"].send {
+    background: #444;
+    color: var(--voilet);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: none;
+}
+
+.body-fallback,
+/* Theme-aware, specific rules for back Send button without using !important.
+   These selectors are intentionally specific so they win over generic .btn rules. */
+body:not(.light) .card-back .cont__form input.send,
+body:not(.light) .card-back .cont__form input[type="submit"].send {
+    display: inline-block;
+    padding: 0.9rem 1.4rem;
+    border-radius: 0.6rem;
+    background: linear-gradient(90deg, #e7c324, #f3d14a);
+    color: #111;
+    border: none;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    z-index: 50;
+    opacity: 1;
+    visibility: visible;
+}
+
+body.light .card-back .cont__form input.send,
+body.light .card-back .cont__form input[type="submit"].send {
+    display: inline-block;
+    padding: 0.9rem 1.4rem;
+    border-radius: 0.6rem;
+    background: linear-gradient(90deg, #102770, #0b2a66);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 10px 30px rgba(11, 42, 102, 0.2);
+    cursor: pointer;
+    z-index: 50;
+    opacity: 1;
+    visibility: visible;
+}
+
+body.light .card-back .cont__form .btn.ghost {
+    color: #444;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.cont__head h3,
+.cont__form h3 {
+    width: 100%;
+    color: var(--voilet);
+    font-size: 2.6rem;
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 0.6rem;
+}
+
+.cont__head p {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+/* Theme-specific fixes: ensure readable contrast for contact card in both modes
+   Uses `.light` on body to detect light theme (do not change base.css) */
+body:not(.light) .flip-front,
+body:not(.light) .flip-back {
+    background: linear-gradient(180deg, rgba(5, 5, 10, 0.96), rgba(20, 20, 30, 0.98));
+    background-color: #0b0b0f;
+    color: #ffffff;
+}
+
+body.light .flip-front,
+body.light .flip-back {
+    background: #ffffff;
+    background-color: #ffffff;
+    color: #0b0b0b;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* --- checkbox-driven 3D flip (test-style) --- */
+.contact-checkbox {
+    position: absolute;
+    left: -9999px;
+}
+
+.card-3d-wrap {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    max-width: 560px;
+    transform-style: preserve-3d;
+    perspective: 1100px;
+    margin: 0 auto;
+}
+
+.card-3d-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 600ms cubic-bezier(.2, .9, .25, 1);
+    transform-origin: center center;
+    will-change: transform;
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 1rem;
+    left: 0;
+    top: 0;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+/* when checked, rotate wrapper to show back */
+.contact-checkbox:checked~.card-3d-wrap .card-3d-wrapper {
+    transform: rotateY(180deg);
+}
+
+.center-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    padding: 1.6rem;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* ensure front/back content sits above decorations */
+.card-front .center-wrap,
+.card-back .center-wrap {
+    position: relative;
+    z-index: 5;
+}
+
+/* center content and keep faces aligned */
+.card-front,
+.card-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* Theme mappings for new card elements */
+body:not(.light) .card-front,
+body:not(.light) .card-back {
+    background: linear-gradient(180deg, rgba(5, 5, 10, 0.96), rgba(20, 20, 30, 0.98));
+    background-color: #0b0b0f;
+    color: #ffffff;
+}
+
+body.light .card-front,
+body.light .card-back {
+    background: #ffffff;
+    background-color: #ffffff;
+    color: #0b0b0b;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* adapt buttons inside contact to look like labels/btns */
+/* front button styling */
+#contact_btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.8rem;
+    border-radius: 0.6rem;
+    background: linear-gradient(90deg, var(--ebony), #222);
+    color: var(--voilet);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border: none;
+    margin-top: 0.6rem;
+}
+
+/* front face specific tweaks */
+.card-front .cont__head h3 {
+    font-size: 2.4rem;
+    margin-bottom: 0.2rem;
+}
+
+.card-front .cont__head p {
+    max-width: 48ch;
+    margin: 0 auto;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.card-front .center-wrap {
+    padding: 1.6rem;
+}
+
+
+/* keep existing visibility control (in case JS used elsewhere) */
+.flip-front {
+    visibility: visible;
+}
+
+.flip-back {
+    visibility: visible;
+}
+
+/* inputs and placeholders */
+body:not(.light) .cont__form .n,
+body:not(.light) .cont__form textarea {
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body:not(.light) .cont__form .n::placeholder,
+body:not(.light) .cont__form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+body.light .cont__form .n,
+body.light .cont__form textarea {
+    background: #ffffff;
+    color: #0b0b0b;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* form: cleaner inputs (restored to original mine.css styles) */
+.cont__form .form {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.cont__form .n,
+.cont__form textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: transparent;
+    border: 1.8px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.6rem;
+    color: var(--text);
+    font-size: 1.6rem;
+}
+
+.cont__form .n:focus,
+.cont__form textarea:focus {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    outline: none;
+    border-color: var(--regular-head);
+}
+
+.cont__form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--voilet);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.cont__form .send {
+    background: linear-gradient(90deg, var(--ebony), #222);
+    color: var(--voilet);
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.6rem;
+    font-size: 1.4rem;
+}
+
+/* contact section - flipping card (clean, minimal, JS-driven) */
+#contact__page {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: 4rem 0;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+.contact_div_wrapper {
+    width: 100%;
+    max-width: 640px;
+    perspective: 1200px;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-card {
+    width: 100%;
+    max-width: 640px;
+    height: 480px;
+    position: relative;
+    overflow: hidden;
+}
+
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.72s cubic-bezier(.2, .9, .25, 1);
+    transform-style: preserve-3d;
+    position: relative;
+    transform-origin: center center;
+}
+
+.flip-card.is-flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.2rem;
+    border-radius: 1rem;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-sizing: border-box;
+    background: var(--card-surface, linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.04)));
+}
+
+.flip-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+/* when flipped, swap stacking so interactive back is on top */
+.flip-card.is-flipped .flip-front {
+    z-index: 1;
+}
+
+.flip-card.is-flipped .flip-back {
+    z-index: 2;
+}
+
+/* visibility toggles to help with pointer events */
+.flip-front {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.flip-back {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flip-card.is-flipped .flip-front {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flip-card.is-flipped .flip-back {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Button color fixes: ensure high contrast in both themes */
+body:not(.light) #contact_btn {
+    color: var(--yelow-white);
+    background: linear-gradient(90deg, var(--regular-head), var(--mauve));
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+body.light #contact_btn {
+    color: #111;
+    background: linear-gradient(90deg, #ffeba7, #ffd36b);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card-back .cont__form .send,
+.card-back .cont__form button.send {
+    color: var(--yelow-white);
+}
+
+body.light .card-back .cont__form .send,
+body.light .card-back .cont__form button.send {
+    color: #ffffff;
+}
+
+.cont__form .btn.ghost {
+    color: var(--voilet);
+}
+
+body.light .cont__form .btn.ghost {
+    color: #444;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* show back when checkbox is checked */
+.contact-checkbox:checked~.card-3d-wrap .card-3d-wrapper {
+    transform: rotateY(180deg);
+}
+
+.center-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    padding: 1.6rem;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+}
+
+/* keep front/back content above decorative layers */
+.card-front .center-wrap,
+.card-back .center-wrap {
+    z-index: 5;
+}
+
+/* theme mapping for the card faces */
+body:not(.light) .card-front,
+body:not(.light) .card-back {
+    background: linear-gradient(180deg, rgba(5, 5, 10, 0.96), rgba(20, 20, 30, 0.98));
+    background-color: #0b0b0f;
+    color: #ffffff;
+}
+
+body.light .card-front,
+body.light .card-back {
+    background: #ffffff;
+    color: #0b0b0b;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Front CTA (label/button) */
+#contact_btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.8rem;
+    border-radius: 0.6rem;
+    /* match resume button color (background only) */
+    background: #444;
+    color: var(--voilet);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border: none;
+    margin-top: 0.6rem;
+}
+
+/* Headings */
+.cont__head h3,
+.cont__form h3 {
+    width: 100%;
+    color: var(--voilet);
+    font-size: 2.6rem;
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 0.6rem;
+}
+
+.cont__head p {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+/* Form layout and inputs */
+.cont__form .form {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.cont__form .n,
+.cont__form textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 0.6rem;
+    font-size: 1.6rem;
+    box-sizing: border-box;
+}
+
+body:not(.light) .cont__form .n,
+body:not(.light) .cont__form textarea {
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body:not(.light) .cont__form .n::placeholder,
+body:not(.light) .cont__form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+body.light .cont__form .n,
+body.light .cont__form textarea {
+    background: #ffffff;
+    color: #0b0b0b;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cont__form .n:focus,
+.cont__form textarea:focus {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    outline: none;
+    border-color: var(--regular-head);
+}
+
+.cont__form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--voilet);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+/* Send button defaults */
+.cont__form .send {
+    /* match resume button background color, keep existing button shape */
+    background: #444;
+    color: var(--voilet);
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.6rem;
+    font-size: 1.4rem;
+    border: none;
+}
+
+/* stronger contrast for back face send button */
+.card-back .cont__form .send {
+    background: linear-gradient(90deg, var(--regular-head), var(--mauve));
+    color: var(--yelow-white);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+body.light .card-back .cont__form .send {
+    background: linear-gradient(90deg, #ffeba7, #ffd36b);
+    color: #102770;
+}
+
+/* Ensure input.send (if present) also gets theme-aware styling with good specificity */
+/* ensure input.submit matches resume btn color as well */
+body:not(.light) .card-back .cont__form input.send,
+body:not(.light) .card-back .cont__form input[type="submit"].send {
+    background: #444;
+    color: var(--voilet);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+    padding: 0.9rem 1.4rem;
+    border-radius: 0.6rem;
+    border: none;
+}
+
+body.light .card-back .cont__form input.send,
+body.light .card-back .cont__form input[type="submit"].send {
+    background: #444;
+    color: var(--voilet);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 0.9rem 1.4rem;
+    border-radius: 0.6rem;
+    border: none;
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    .card-3d-wrapper {
+        transition: none;
+    }
+}

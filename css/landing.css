@@ -1,0 +1,217 @@
+/* landing page */
+#landing__page{
+    width: 100%;
+    height: var(--page-hieght);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2.4rem;
+    flex-wrap: wrap;
+    padding: 3.2rem 0;
+}
+.landing__image{
+    flex: 1 1 420px;
+    max-width: 55%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.landing__image img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+}
+#landing__page .landing__text{
+    flex: 1 1 420px;
+    max-width: 55%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 320px;
+}
+.text{
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-end;
+}
+.text p{
+    font-size: 1.6rem;
+    color: var(--text);
+    text-align: justify;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    margin: 1rem auto;
+    font-weight: 500;
+}
+
+/* spacing between resume button and social links */
+#landing__page .text #btn{ margin-bottom: 1.6rem; }
+#landing__page .landing__text .socials{ margin-top: 0.6rem; display:flex; gap:1rem; }
+
+.text h3{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: var(--voilet);
+    line-height: 1;
+}
+.text h3 span:nth-child(1){
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    font-size: 3.5rem;
+}
+.text h3 span:nth-child(2){
+    text-transform: capitalize;
+    font-weight: 800;
+    letter-spacing: 0px;
+    font-size: 7rem;
+}
+#btn{
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding: 0.75rem 1.5rem;
+    letter-spacing: 0.1rem;
+    background: #444;
+    color: var(--voilet);
+    transition: .5s;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+#btn:hover{
+    letter-spacing: 0.25rem;
+    background: #0059ff;
+    color: #0059ff;
+    box-shadow: 0 0 34px var(--mauve);
+}
+#btn::before{
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: var(--yelow-white);
+}
+
+#btn span{
+    position: relative;
+    z-index: 1;
+}
+#btn i{
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+#btn i::before{
+    content: '';
+    position: absolute;
+    border: 0.15rem solid var(--voilet);
+    top: -3.5px;
+    left: 80%;
+    width: 1.5rem;
+    height: 1rem;
+    transform: translateX(-50%);
+    background: var(--yelow-white);
+    transition: .5s;
+}
+#btn:hover i::before{
+    width: 2rem;
+    left: 20%;
+}
+#btn i::after{
+    content: '';
+    position: absolute;
+    border: 0.15rem solid var(--voilet);
+    bottom: -3.5px;
+    left: 20%;
+    width: 1.5rem;
+    height: 1rem;
+    transform: translateX(-50%);
+    background: var(--yelow-white);
+    transition: .5s;
+}
+#btn:hover i::after{
+    width: 2rem;
+    left: 80%;
+}
+
+
+.landing__text .socials {
+    width: 70%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.hex__wrapper{
+    display: flex;
+    width: 7rem;
+    height: 7rem;
+}
+.hex{
+    position: relative;
+    margin: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: linear-gradient(-180deg, var(--mauve), var(--voilet));
+    width: 34px;
+    height: 56px;
+    transition: .5s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.hex a{
+    display: flex;
+    align-self: center;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    color: var(--yelow-white);
+}
+.hex a:hover{
+   color: var(--yelow-white);
+}
+.hex i{
+    z-index: 1;
+    display: flex;
+    margin: auto;
+    font-size: 3.7rem;
+}
+.hex::after,
+.hex::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: inherit;
+    border-radius: 4px;
+    transform-origin: center;
+    transition: .7s;
+}
+.hex::after{
+    transform: rotateZ(60deg);
+}
+.hex::before{
+    transform: rotateZ(-60deg);
+}
+.hex:hover{
+    border-radius: 5rem;
+    transition: .7s; 
+}
+.hex:hover:before{
+    border-radius: 5rem;
+    transition: .7s
+}
+.hex:hover:after{
+    border-radius: 5rem;
+    transition: .7s;
+}

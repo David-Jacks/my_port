@@ -1,0 +1,17 @@
+/* footer */
+#footer__page{
+    margin-top: 6rem;
+    width: 100%;
+    border-bottom: 0.1rem solid var(--ebony);
+}
+
+.copy__right{
+    font-size: 2rem;
+    text-align: center;
+    color: var(--voilet);
+    font-weight: 300;
+}
+#footer__page .copy__right span{
+    font-weight: 500;
+    font-size: 2.2rem;
+}

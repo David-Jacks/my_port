@@ -1,8 +1,12 @@
 ///light and dark mode
 
-document.querySelector(".checkbox").addEventListener("click", () => {
-  document.body.classList.toggle("light");
-});
+// theme toggle is handled on DOMContentLoaded to ensure element exists
+
+// set current year in footer
+function setCurrentYear() {
+  var el = document.getElementById('current-year');
+  if (el) el.textContent = new Date().getFullYear();
+}
 
 // const menuButton = document.querySelector(".menu");
 // const navBar = document.querySelector(".head-nav");
@@ -45,12 +49,26 @@ document.querySelector(".checkbox").addEventListener("click", () => {
 
 // contact section swap
 document.addEventListener("DOMContentLoaded", () => {
+  // theme toggle: sync body class with checkbox state and listen for changes
+  const themeToggle = document.getElementById('checkbox') || document.querySelector('.checkbox');
+  if (themeToggle) {
+    const applyTheme = (checked) => {
+      if (checked) document.body.classList.add('light');
+      else document.body.classList.remove('light');
+    };
+    // initialize theme based on current checkbox state
+    applyTheme(themeToggle.checked);
+    // update on user interaction
+    themeToggle.addEventListener('change', (e) => applyTheme(e.target.checked));
+  }
   const swap = document.getElementById("contact_btn");
   const swapAffector = document.querySelector(".contact_div_wrapper");
 
   swap.addEventListener("click", () => {
       swapAffector.classList.toggle("swap");
   });
+  // call year setter when DOM is ready
+  setCurrentYear();
 });
 
 

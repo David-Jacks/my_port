@@ -92,6 +92,6 @@ html, body { -webkit-text-size-adjust: 100%; }
   .my-container {
     width: 100vw;
     padding: 0 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 0rem;
   }
 }

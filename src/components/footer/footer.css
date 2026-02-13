@@ -1,7 +1,7 @@
 /* footer */
 #footer__page {
   margin-top: 8rem;
-  padding: 3rem 2rem;
+  padding: 0rem 2rem;
   text-align: center;
 }
 
@@ -62,6 +62,7 @@ body.light .footer__separator {
 /* Mobile */
 @media (max-width: 553px) {
   #footer__page {
+    /* position: relative; */
     padding: 2rem 1.5rem;
     margin-top: 4rem;
     margin-bottom: 2rem;
@@ -82,4 +83,5 @@ body.light .footer__separator {
     width: 6rem;
     margin-bottom: 1.5rem;
   }
+
 }

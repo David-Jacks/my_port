@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './projects.css';
 
 interface Project {
@@ -36,6 +36,10 @@ const projectsData: Project[] = [
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const minSwipeDistance = 50;
 
   const nextProject = () => {
     setCurrentIndex((prev) => (prev + 1) % projectsData.length);
@@ -47,6 +51,29 @@ const Projects = () => {
 
   const goToProject = (index: number) => {
     setCurrentIndex(index);
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const isSwipeLeft = distance > minSwipeDistance;
+    const isSwipeRight = distance < -minSwipeDistance;
+
+    if (isSwipeLeft) {
+      nextProject();
+    } else if (isSwipeRight) {
+      prevProject();
+    }
   };
 
   const currentProject = projectsData[currentIndex];
@@ -62,7 +89,12 @@ const Projects = () => {
         </p>
       </div>
 
-      <div className="carousel">
+      <div 
+        className="carousel"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <button 
           className="carousel__btn carousel__btn--prev" 
           onClick={prevProject}
@@ -140,6 +172,11 @@ const Projects = () => {
             aria-label={`Go to project ${index + 1}`}
           />
         ))}
+      </div>
+
+      <div className="carousel__swipe-hint">
+        <i className="fa-solid fa-hand-pointer"></i>
+        <span>Swipe to browse</span>
       </div>
     </section>
   );

@@ -7,6 +7,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    /* height: fit-content; */
     padding: 8rem 0;
     font-size: 1.6rem;
     margin-top: 2.5rem;
@@ -322,8 +323,9 @@ label[for="contact-flip"] {
     width: 100%;
     height: auto;
     margin-top: 4rem;
-    padding: 4rem 1rem;
+    padding: 4rem 1rem 30rem 1rem;
   }
+  
   .contact__header {
     margin-bottom: 3rem;
     padding: 0 1rem;
@@ -408,4 +410,78 @@ label[for="contact-flip"] {
   .center-wrap { 
     padding: 1rem !important; 
   }
+}
+
+/* Success & Error Messages */
+.success-message,
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  min-height: 30rem;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-message i,
+.error-message i {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+.success-message i {
+  color: #4ade80;
+}
+
+.error-message i {
+  color: #f87171;
+}
+
+.success-message h3,
+.error-message h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.success-message p,
+.error-message p {
+  font-size: 1.4rem;
+  color: var(--text);
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.success-message .btn,
+.error-message .btn {
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* Disabled state for form inputs */
+.form input:disabled,
+.form textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.send:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }

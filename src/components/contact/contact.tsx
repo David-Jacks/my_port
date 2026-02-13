@@ -1,15 +1,18 @@
 import { useState, useRef, useEffect } from 'react';
+import type { FormEvent } from 'react';
 import './contact.css';
 
 const Contact = () => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const firstInputRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (isFlipped && firstInputRef.current) {
+    if (isFlipped && firstInputRef.current && submitStatus === 'idle') {
       setTimeout(() => firstInputRef.current?.focus(), 420);
     }
-  }, [isFlipped]);
+  }, [isFlipped, submitStatus]);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -20,6 +23,37 @@ const Contact = () => {
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitStatus('submitting');
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mvojapal', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        formRef.current?.reset();
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch {
+      setSubmitStatus('error');
+    }
+  };
+
+  const resetForm = () => {
+    setSubmitStatus('idle');
+    setIsFlipped(false);
+  };
 
   return (
     <div id="contact__page">
@@ -51,47 +85,78 @@ const Contact = () => {
             </div>
             <div className="card-back card cont__form">
               <div className="center-wrap">
-                <h3>Write to me</h3>
-                <form
-                  id="contact-form"
-                  action="https://formspree.io/f/mvojapal"
-                  className="form"
-                  method="POST"
-                >
-                  <input
-                    ref={firstInputRef}
-                    className="n"
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    required
-                  />
-                  <input
-                    className="n"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                  />
-                  <textarea
-                    name="message"
-                    id="cont-mess"
-                    cols={15}
-                    rows={6}
-                    placeholder="write message"
-                    required
-                  ></textarea>
-                  <div className="form-ctas">
-                    <button
-                      type="button"
-                      className="btn ghost"
-                      onClick={() => setIsFlipped(false)}
-                    >
-                      Back
+                {submitStatus === 'success' ? (
+                  <div className="success-message">
+                    <i className="fa-solid fa-circle-check"></i>
+                    <h3>Message Sent!</h3>
+                    <p>Thank you for reaching out. I'll get back to you soon.</p>
+                    <button className="btn" onClick={resetForm}>
+                      <span>Done</span>
                     </button>
-                    <input type="submit" className="send" value="Send" />
                   </div>
-                </form>
+                ) : submitStatus === 'error' ? (
+                  <div className="error-message">
+                    <i className="fa-solid fa-circle-xmark"></i>
+                    <h3>Something went wrong</h3>
+                    <p>Please try again or email me directly.</p>
+                    <button className="btn" onClick={() => setSubmitStatus('idle')}>
+                      <span>Try Again</span>
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <h3>Write to me</h3>
+                    <form
+                      ref={formRef}
+                      id="contact-form"
+                      className="form"
+                      onSubmit={handleSubmit}
+                    >
+                      <input
+                        ref={firstInputRef}
+                        className="n"
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        required
+                        disabled={submitStatus === 'submitting'}
+                      />
+                      <input
+                        className="n"
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        disabled={submitStatus === 'submitting'}
+                      />
+                      <textarea
+                        name="message"
+                        id="cont-mess"
+                        cols={15}
+                        rows={6}
+                        placeholder="write message"
+                        required
+                        disabled={submitStatus === 'submitting'}
+                      ></textarea>
+                      <div className="form-ctas">
+                        <button
+                          type="button"
+                          className="btn ghost"
+                          onClick={() => setIsFlipped(false)}
+                          disabled={submitStatus === 'submitting'}
+                        >
+                          Back
+                        </button>
+                        <input 
+                          type="submit" 
+                          className="send" 
+                          value={submitStatus === 'submitting' ? 'Sending...' : 'Send'}
+                          disabled={submitStatus === 'submitting'}
+                        />
+                      </div>
+                    </form>
+                  </>
+                )}
               </div>
             </div>
           </div>

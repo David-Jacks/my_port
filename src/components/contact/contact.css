@@ -1,0 +1,411 @@
+/* Contact Section - 3D Flipping Card */
+
+/* Container */
+#contact__page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 8rem 0;
+    font-size: 1.6rem;
+    margin-top: 2.5rem;
+}
+
+/* Section Header */
+.contact__header {
+    text-align: center;
+    max-width: 60rem;
+    margin-bottom: 5rem;
+}
+
+.contact__label {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    color: var(--regular-head);
+    margin-bottom: 1rem;
+}
+
+.contact__header h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--voilet);
+    margin-bottom: 1.5rem;
+}
+
+.contact__header p {
+    font-size: 1.4rem;
+    color: var(--text);
+    line-height: 1.7;
+    opacity: 0.8;
+}
+
+/* Wrapper for the flip card */
+.contact_div_wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+/* 3D perspective wrapper */
+.card-3d-wrap {
+    position: relative;
+    width: 100%;
+    height: 50rem;
+    perspective: 95rem;
+}
+
+/* The rotating wrapper */
+.card-3d-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(.2, .9, .3, 1);
+    transform-origin: center center;
+}
+
+/* Front and back faces */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.card-front {
+    z-index: 2;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+/* FLIP ANIMATION - when is-flipped class is added */
+.card-3d-wrapper.is-flipped {
+    transform: rotateY(180deg);
+}
+
+/* Center content wrapper */
+.center-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 42rem;
+    max-height: 100%;
+    padding: 2rem;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    overflow: auto;
+}
+
+/* Theme: Dark mode card faces */
+body:not(.light) .card-front,
+body:not(.light) .card-back {
+    background: #1a1a2e;
+    color: #ffffff;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Theme: Light mode card faces */
+body.light .card-front,
+body.light .card-back {
+    background: #ffffff;
+    color: #0b0b0b;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.12);
+}
+
+/* Headings */
+.cont__head h3,
+.cont__form h3 {
+    width: 100%;
+    color: var(--voilet);
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 1rem;
+}
+
+.cont__head p {
+    font-size: 1.6rem;
+    text-align: center;
+    line-height: 1.8;
+    color: var(--text);
+    max-width: 50ch;
+    margin: 0 auto;
+}
+
+/* Contact button (front face) */
+#contact_btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.8rem;
+    border-radius: 0.6rem;
+    box-shadow: 0 0.6rem 2rem rgba(0, 0, 0, 0.2);
+    border: none;
+    margin-top: 0.6rem;
+    font-size: 1.4rem;
+}
+
+body:not(.light) #contact_btn {
+    background: linear-gradient(90deg, var(--regular-head), var(--mauve));
+    color: var(--yelow-white);
+    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.3);
+}
+
+body.light #contact_btn {
+    background: linear-gradient(90deg, #ffeba7, #ffd36b);
+    color: #111;
+    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.08);
+}
+
+/* Form layout */
+.cont__form .form {
+    width: 100%;
+    max-width: 42rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Form inputs */
+.cont__form .n,
+.cont__form textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 0.6rem;
+    font-size: 1.6rem;
+    box-sizing: border-box;
+}
+
+body:not(.light) .cont__form .n,
+body:not(.light) .cont__form textarea {
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body:not(.light) .cont__form .n::placeholder,
+body:not(.light) .cont__form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+body.light .cont__form .n,
+body.light .cont__form textarea {
+    background: #ffffff;
+    color: #0b0b0b;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cont__form .n:focus,
+.cont__form textarea:focus {
+    box-shadow: 0 0.8rem 3rem rgba(0, 0, 0, 0.18);
+    outline: none;
+    border-color: var(--regular-head);
+}
+
+.cont__form textarea {
+    min-height: 10rem;
+    max-height: 14rem;
+    resize: none;
+}
+
+/* Form buttons row */
+.form-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Ghost button (Back) */
+.btn.ghost {
+    background: transparent;
+    color: var(--voilet);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+body.light .btn.ghost {
+    color: #444;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Send button */
+.cont__form .send {
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.6rem;
+    font-size: 1.4rem;
+    border: none;
+    cursor: pointer;
+}
+
+body:not(.light) .cont__form .send {
+    background: linear-gradient(90deg, var(--regular-head), var(--mauve));
+    color: var(--yelow-white);
+    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.28);
+}
+
+body.light .cont__form .send {
+    background: linear-gradient(90deg, #ffeba7, #ffd36b);
+    color: #102770;
+    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.08);
+}
+
+/* Labels act as buttons */
+label[for="contact-flip"] {
+    cursor: pointer;
+}
+
+/* Tablet Portrait */
+@media screen and (max-width: 768px) {
+  #contact__page {
+    padding: 6rem 2rem;
+  }
+
+  .contact__header {
+    margin-bottom: 4rem;
+  }
+
+  .contact__header h2 {
+    font-size: 3rem;
+  }
+
+  .contact_div_wrapper {
+    max-width: 45rem;
+  }
+
+  .card-3d-wrap {
+    height: 45rem;
+  }
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    .card-3d-wrapper {
+        transition: none;
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 553px) {
+  #contact__page {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 4rem;
+    padding: 4rem 1rem;
+  }
+  .contact__header {
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+  .contact__header h2 {
+    font-size: 2.5rem;
+  }
+  .contact__header p {
+    font-size: 1.2rem;
+  }
+  #contact__page .contact_div_wrapper {
+    width: 100%;
+    max-width: 32rem;
+    height: auto;
+    padding: 0rem;
+    margin: auto;
+  }
+  .cont__form .n {
+    width: 100%;
+    height: 3rem;
+    padding: 0rem 1.3rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+  .cont__form .send {
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+  }
+  .cont__form .send:hover {
+    letter-spacing: 0.3rem;
+  }
+  #cont-mess {
+    width: 100%;
+    height: 30%;
+    padding: 1rem 1.3rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+  .cont__head h3 {
+    width: 100%;
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+  .cont__head p {
+    font-size: 1rem;
+    text-align: justify;
+    line-height: 2;
+    letter-spacing: 0.05rem;
+    font-weight: 500;
+  }
+
+  /* Switch 3D flip to stacked flow for better responsiveness */
+  .card-3d-wrap {
+    height: auto !important;
+    max-height: none !important;
+  }
+  .card-3d-wrapper {
+    height: auto !important;
+  }
+  .card-3d-wrapper.is-flipped {
+    transform: none;
+  }
+  .card-front, .card-back {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+  .card-back { 
+    display: none !important; 
+  }
+  .card-3d-wrapper.is-flipped .card-back { 
+    display: block !important; 
+  }
+  .card-3d-wrapper.is-flipped .card-front { 
+    display: none !important; 
+  }
+  .center-wrap { 
+    padding: 1rem !important; 
+  }
+}
